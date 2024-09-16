@@ -1,0 +1,11 @@
+name: creatopy-use-case
+services:
+  app:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src:/app/src
+    command: npm run dev

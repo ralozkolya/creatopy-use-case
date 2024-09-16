@@ -1,0 +1,37 @@
+{
+  "name": "creatopy-use-case",
+  "version": "0.1.0",
+  "description": "Creatopy take-home task",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "esbuild src/index.tsx --bundle --outfile=dist/index.js --platform=node --jsx=automatic",
+    "build:watch": "npm run build -- --watch",
+    "dev": "npm run build && concurrently -k \"npm run build:watch\" \"nodemon dist/index.js\""
+  },
+  "author": "Nikoloz Razmadze <nikoloz@razmadze.me>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "esbuild": "^0.23.1",
+    "express": "^4.21.0",
+    "http-errors": "^2.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/react": "^18.3.6",
+    "@types/react-dom": "^18.3.0",
+    "concurrently": "^9.0.1",
+    "nodemon": "^3.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ralozkolya/creatopy-use-case.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ralozkolya/creatopy-use-case/issues"
+  },
+  "homepage": "https://github.com/ralozkolya/creatopy-use-case#readme"
+}

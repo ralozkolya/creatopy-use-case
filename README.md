@@ -2,6 +2,10 @@
 
 SSR implementation for rendering custom JSON schema as HTML. It utilizes `react-dom/server` to render React app, `eslint` to build TS/JSX, and `express` to serve the content.
 
+## DEMO ##
+
+You can check the live version here: <https://creatopy.razmadze.me/>
+
 ## Installation ##
 
 No extra steps are required, running `npm install` should download all the dependencies. It has been tested with the latest LTS release of Node.js - `v20.17.0`. Alternatively, you can build a Docker image using the provided `Dockerfile`.
@@ -30,7 +34,7 @@ For production, you'll need to run `npm run build`, followed by `npm start`, whi
 
 JSON data hash is provided using `hash` GET parameter, and `DEFAULT_HASH` is used if none is provided.
 
-> Example: `http://example.com?hash=123abc`
+> Example: `https://creatopy.razmadze.me?hash=123abc`
 
 ## Notes ##
 
@@ -40,6 +44,6 @@ JSON data hash is provided using `hash` GET parameter, and `DEFAULT_HASH` is use
 
 - I'm not happy with the animation implementation. It's not clear to me how exactly the combination of different properties to animate are represented in the data. I'm also not certain whether I'm interpreting the results correctly. Currently I've implemented one property animation per element, but the approach should be easy to extend to multiple properties.
 
-- Given more time, I'd add support for more elements, with better fallbacks and fail-safes. Additionally, I haven't used async RSC, because I couldn't make them work and I couldn't easily figure out what was causing the issue. Having more time at my disposal, I'd investigate further the culprit. I'm guessing it has to do with ESBuild support, but it's hart to tell at this point. Currently, the JSON data needs to be loaded on the server before I start streaming the data to the client, but I believe it's possible to start streaming it right away and send the skeleton before the JSON data arrives.
+- Given more time, I'd add support for more elements, with better fallbacks and fail-safes. Additionally, I haven't used async RSC, because I couldn't make them work and I couldn't easily figure out what was causing the issue. Having more time at my disposal, I'd investigate further the culprit. I'm guessing it has to do with ESBuild support, but it's hard to tell at this point. Currently, the JSON data needs to be loaded on the server before I start streaming the data to the client, but I believe it's possible to start streaming it right away and send the skeleton before the JSON data arrives.
 
 - For this particular use-case, I feel like React isn't the best choice. Even with RSC and SSR, functionality on the server is limited, and more old-school approaches of traditional, multi-page web frameworks seem to be a better fit. I'd explore alternatives, as most of the React advantages comes from interactivity, DOM manipulation, and data binding, and none of these are required in this case.

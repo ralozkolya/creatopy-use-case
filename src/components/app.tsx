@@ -16,6 +16,7 @@ function getStyle(props: JsonDesignProperties): CSSProperties {
     ...cssBg(props.backgroundColor),
     width: props.width,
     height: props.height,
+    position: "relative",
   };
 }
 

@@ -20,6 +20,7 @@ export default function HtmlShell({
         <title>{title ?? "Banner"}</title>
         {fonts?.map((family) => (
           <link
+            key={family}
             rel="stylesheet"
             href={`${FONTS_URI}?${new URLSearchParams({ family })}`}
           />

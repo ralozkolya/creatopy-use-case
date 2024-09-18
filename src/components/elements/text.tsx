@@ -18,6 +18,7 @@ function getStyle(props: StyleProps): CSSProperties {
     fontSize: props.fontSize,
     fontFamily: props.fontFamily,
     color: props.color,
+    lineHeight: props.lineHeight,
   };
 }
 

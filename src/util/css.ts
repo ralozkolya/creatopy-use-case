@@ -3,18 +3,26 @@ import {
   JsonBackgroundSolid,
   JsonBackgroundWithBorder,
   JsonBaseElementProperties,
+  JsonBorder,
   JsonShadow,
 } from "../types/jsonDesign.types";
 
 function solidBg(
-  bg: JsonBackgroundSolid & JsonBackgroundWithBorder
+  bg: Partial<JsonBackgroundSolid & JsonBackgroundWithBorder & JsonBorder>
 ): CSSProperties {
   const style: CSSProperties = {
     backgroundColor: bg.scolor,
   };
 
   if (bg.useBorder) {
-    style.borderColor = bg.borderColor;
+    Object.assign(style, {
+      borderColor: bg.borderColor,
+      borderWidth: 1,
+      borderStyle: "solid",
+      borderRadius: bg.radius,
+    });
+  } else {
+    style.border = "none";
   }
 
   return style;

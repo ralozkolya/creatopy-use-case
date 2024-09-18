@@ -2,6 +2,7 @@ import { CSSProperties } from "react";
 import {
   JsonBackgroundSolid,
   JsonBackgroundWithBorder,
+  JsonBaseElementProperties,
   JsonShadow,
 } from "../types/jsonDesign.types";
 
@@ -17,6 +18,18 @@ function solidBg(
   }
 
   return style;
+}
+
+export function position(
+  props: Partial<JsonBaseElementProperties>
+): CSSProperties {
+  return {
+    width: props.width,
+    height: props.height,
+    position: "absolute",
+    top: props.y,
+    left: props.x,
+  };
 }
 
 // Currently only support solid BG

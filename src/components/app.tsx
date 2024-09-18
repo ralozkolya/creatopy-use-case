@@ -11,13 +11,15 @@ interface AppProps {
   };
 }
 
-const getStyle = (props: JsonDesignProperties): CSSProperties => ({
-  ...cssBg(props.backgroundColor),
-  width: props.width,
-  height: props.height,
-  transform: "scale(2)",
-  transformOrigin: "top left",
-});
+function getStyle(props: JsonDesignProperties): CSSProperties {
+  return {
+    ...cssBg(props.backgroundColor),
+    width: props.width,
+    height: props.height,
+    transform: "scale(2)",
+    transformOrigin: "top left",
+  };
+}
 
 export default function App({ data: { banner } }: AppProps) {
   return (

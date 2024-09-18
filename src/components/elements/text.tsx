@@ -4,23 +4,22 @@ import {
   JsonTextProperties,
   JsonTextSlateConfigChildren,
 } from "../../types/jsonDesign.types";
+import { position } from "../../util/css";
 
 type StyleProps = Partial<
   JsonTextProperties & JsonFontSettings & JsonTextSlateConfigChildren
 >;
 type TextProps = Omit<JsonTextProperties, "id" | "feed">;
 
-const getStyle = (props: StyleProps): CSSProperties => ({
-  position: "absolute",
-  top: props.y,
-  left: props.x,
-  width: props.width,
-  height: props.height,
-  textAlign: props.alignment,
-  fontSize: props.fontSize,
-  fontFamily: props.fontFamily,
-  color: props.color,
-});
+function getStyle(props: StyleProps): CSSProperties {
+  return {
+    ...position(props),
+    textAlign: props.alignment,
+    fontSize: props.fontSize,
+    fontFamily: props.fontFamily,
+    color: props.color,
+  };
+}
 
 export default function Text(props: TextProps) {
   return props.config.nodes.map((node) =>

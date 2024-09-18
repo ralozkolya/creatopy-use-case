@@ -1,7 +1,7 @@
-import { renderToPipeableStream } from "react-dom/server";
 import express, { NextFunction, Request, Response } from "express";
-import App from "./components/app";
+import { renderToPipeableStream } from "react-dom/server";
 import { retrieveData } from "./api";
+import App from "./components/app";
 import { DEFAULT_HASH } from "./config";
 
 const app = express();

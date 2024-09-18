@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "esbuild src/index.tsx --bundle --outfile=dist/index.js --platform=node --jsx=automatic",
+    "build": "esbuild src/index.tsx --bundle --outfile=dist/index.js --platform=node --jsx=automatic --jsx-import-source='@emotion/react'",
     "build:watch": "npm run build -- --watch",
     "dev": "npm run build && concurrently -k \"npm run build:watch\" \"nodemon dist/index.js\""
   },

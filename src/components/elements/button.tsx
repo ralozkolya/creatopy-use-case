@@ -1,9 +1,11 @@
-import { CSSProperties } from "react";
+import { css } from "@emotion/react";
 import { JsonButtonProperties } from "../../types/jsonDesign.types";
-import { position, cssBg } from "../../util/css";
+import { animation } from "../../util/animation";
+import { cssBg, position } from "../../util/css";
 
-function getStyle(props: JsonButtonProperties): CSSProperties {
-  return {
+function getStyle(props: JsonButtonProperties) {
+  return css({
+    ...animation(props.buildIn),
     ...position(props),
     ...cssBg(props.backgroundColor),
     fontFamily: props.labelStyle.fontFamily,
@@ -11,9 +13,9 @@ function getStyle(props: JsonButtonProperties): CSSProperties {
     fontSize: props.labelStyle.fontSize,
     color: props.labelStyle.color,
     cursor: "pointer",
-  };
+  });
 }
 
 export default function Button(props: JsonButtonProperties) {
-  return <button style={getStyle(props)}>{props.buttonLabel}</button>;
+  return <button css={getStyle(props)}>{props.buttonLabel}</button>;
 }

@@ -35,3 +35,9 @@ JSON data hash is provided using `hash` GET parameter, and `DEFAULT_HASH` is use
 ## Notes ##
 
 - Using data from the default hash provided for testing, and comparing the results to the provided example implementation, I came to conclusion that some of the properties are either getting ignored, or being handled in a non-obvious way. I mean the button background, the 'Plan your vacation' text width, etc. I haven't tried adjusting them, as I wasn't certain these inconsistencies weren't intentional.
+
+- This solution is quite limited, as I chose to avoid having client-side JS altogether. So, no React or other JS bundle is being loaded on the client. The reasoning was that, in my opinion, an ad should be using minimal bandwidth and CPU. Getting this to work was the most challenging part of this assignment, as a lot of the React ecosystem depends on being run in the browser. I had to forego using my favorite CSS libraries due to this fact.
+
+- Given more time, I'd add support for more elements, with better fallbacks and failsafes. Additionally, I haven't used async RSC, because I couldn't make them work and I couldn't easily figure out what was causing the issue. Having more time at my disposal, I'd investigate further the culprit. I'm guessing it has to do with ESBuild support, but it's hart to tell at this point. Currently, the JSON data needs to be loaded on the server before I start streaming the data to the client, but I believe it's possible to start streaming it right away and send the skeleton before the JSON data arrives.
+
+- For this particular use-case, I feel like React isn't the best choice. Even with RSC and SSR, functionality on the server is limited, and more old-school approaches of traditional, multi-page web frameworks seem to be a better fit. I'd explore alternatives, as most of the React advantages comes from interactivity, DOM manipulation, and data binding, and none of these are required in this case.

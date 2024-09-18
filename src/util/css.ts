@@ -19,6 +19,7 @@ function solidBg(
   return style;
 }
 
+// Currently only support solid BG
 export function cssBg(bg: JsonBackgroundWithBorder): CSSProperties {
   switch (bg.type) {
     case "solid":

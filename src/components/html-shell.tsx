@@ -1,9 +1,4 @@
-import styled from "@emotion/styled";
 import { PropsWithChildren } from "react";
-
-const Body = styled.body`
-  margin: 0;
-`;
 
 export default function HtmlShell({
   children,
@@ -17,7 +12,7 @@ export default function HtmlShell({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title ?? "Banner"}</title>
       </head>
-      <Body>{children}</Body>
+      <body style={{ margin: 0 }}>{children}</body>
     </html>
   );
 }

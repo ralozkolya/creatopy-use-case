@@ -1,12 +1,14 @@
-import { CSSObject } from "@emotion/styled";
+import { CSSProperties } from "react";
 import {
   JsonBackgroundSolid,
   JsonBackgroundWithBorder,
   JsonShadow,
 } from "../types/jsonDesign.types";
 
-function solidBg(bg: JsonBackgroundSolid & JsonBackgroundWithBorder) {
-  const style: CSSObject = {
+function solidBg(
+  bg: JsonBackgroundSolid & JsonBackgroundWithBorder
+): CSSProperties {
+  const style: CSSProperties = {
     backgroundColor: bg.scolor,
   };
 
@@ -17,7 +19,7 @@ function solidBg(bg: JsonBackgroundSolid & JsonBackgroundWithBorder) {
   return style;
 }
 
-export function cssBg(bg: JsonBackgroundWithBorder) {
+export function cssBg(bg: JsonBackgroundWithBorder): CSSProperties {
   switch (bg.type) {
     case "solid":
       return solidBg(bg);
@@ -32,10 +34,10 @@ export function shadow({
   blur,
   color,
   useShadow,
-}: JsonShadow) {
+}: JsonShadow): CSSProperties {
   if (!useShadow) return {};
 
   return {
     boxShadow: `${hShadow}px ${vShadow}px ${blur}px ${color}`,
-  } as CSSObject;
+  };
 }

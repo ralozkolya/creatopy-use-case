@@ -1,6 +1,6 @@
 # Creatopy take-home assessment #
 
-SSR implementation for rendering custom JSON schema as HTML. It utilizes `react-dom/server` to render React app, `eslint` to build TS/JSX, and `express` to serve the content.
+SSR implementation for rendering custom JSON schema as HTML. It utilizes `react-dom/server` to render React app, `esbuild` to build TS/JSX, and `express` to serve the content.
 
 ## DEMO ##
 

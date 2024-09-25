@@ -32,7 +32,7 @@ For development, `npm run dev` runs the build process, as well as the server in 
 
 For production, you'll need to run `npm run build`, followed by `npm start`, which disables watchers and is, therefore, more performant. `Dockerfile`, with no modifications from `docker-compose.yaml`, serves the app using this approach.
 
-JSON data hash is provided using `hash` GET parameter, and `DEFAULT_HASH` is used if none is provided.
+JSON data hash is provided using `hash` GET parameter, and `DEFAULT_HASH` is used if it's missing.
 
 > Example: `https://creatopy.razmadze.me?hash=123abc`
 

@@ -2,10 +2,6 @@
 
 SSR implementation for rendering custom JSON schema as HTML. It utilizes `react-dom/server` to render React app, `esbuild` to build TS/JSX, and `express` to serve the content.
 
-## DEMO ##
-
-You can check the live version here: <https://creatopy.razmadze.me/>
-
 ## Installation ##
 
 No extra steps are required, running `npm install` should download all the dependencies. It has been tested with the latest LTS release of Node.js - `v20.17.0`. Alternatively, you can build a Docker image using the provided `Dockerfile`.
